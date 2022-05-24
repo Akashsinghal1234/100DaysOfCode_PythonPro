@@ -1,0 +1,6 @@
+# num_char = len(input("what is your name ? \t"))
+# print("Your name has " + str(num_char) + " characters.")
+a = str(11919)
+print(type(a))
+print(str(70)+str(100))
+print("Hello World!")
