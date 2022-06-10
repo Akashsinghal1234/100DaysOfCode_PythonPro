@@ -1,69 +1,15 @@
 import random
-stages = ['''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-''']
+import HangMan_Stages
+import HangMan_Words
 lives = 6
-words = ["celeso", "setenota", "onemandband"]
-word = random.choice(words)
+word = random.choice(HangMan_Words.words)
 print(word)
 ans = []
 ok = True
 for i in range(len(word)):
     ans.append("_")
 while "_" in ans:
+    ok = True
     choice = input("Enter a char: ").lower()
     for i in range(len(word)):
         if word[i] == choice:
@@ -72,6 +18,8 @@ while "_" in ans:
     if ok:
         ok = True
         lives -= 1
-    print(stages[lives])
+    print(HangMan_Stages.stages[lives])
+    if lives == 0:
+        break
     print(ans)
 print("GAME OVER")
