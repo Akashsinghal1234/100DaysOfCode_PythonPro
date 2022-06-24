@@ -4,16 +4,16 @@ alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
              'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
              's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 direction = input("Type 'encode' to encrypt, type 'decode' to decrypt : \n").lower()
-if direction != "encode" or direction != "decode":
-    print("sale pagal banata hai")
-else:
-    text = input("Type your message : \n").lower()
-    shift = int(input("Type the shift number : "))
+text = input("Type your message : \n").lower()
+shift = (int(input("Type the shift number : "))) % 26
 
 
 def ceasar(plain_text, numbers_of_shift, direction_of_code):
     new_text = ""
     for letter in plain_text:
+        if letter == " ":
+            new_text += letter
+            continue
         position = alphabets.index(letter)
         if direction_of_code == "encode":
             new_position = position + numbers_of_shift
