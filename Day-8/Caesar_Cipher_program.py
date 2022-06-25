@@ -3,15 +3,12 @@ alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
              'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g',
              'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
              's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt : \n").lower()
-text = input("Type your message : \n").lower()
-shift = (int(input("Type the shift number : "))) % 26
 
 
-def ceasar(plain_text, numbers_of_shift, direction_of_code):
+def caesar(plain_text, numbers_of_shift, direction_of_code):
     new_text = ""
     for letter in plain_text:
-        if letter == " ":
+        if letter not in alphabets:
             new_text += letter
             continue
         position = alphabets.index(letter)
@@ -27,5 +24,15 @@ def ceasar(plain_text, numbers_of_shift, direction_of_code):
         print(f"The decoded message is {new_text}.")
 
 
-if direction == "encode" or direction == "decode":
-    ceasar(text, shift, direction)
+repeat = True
+while repeat:
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt : \n").lower()
+    text = input("Type your message : \n").lower()
+    shift = (int(input("Type the shift number : "))) % 26
+
+    if direction == "encode" or direction == "decode":
+        caesar(text, shift, direction)
+
+    ask = input("If you want to continue type 'yes', otherwise 'no' : ").lower()
+    if ask == "no":
+        repeat = False
