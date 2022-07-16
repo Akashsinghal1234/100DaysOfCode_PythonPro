@@ -7,6 +7,7 @@ def bidding():
     price = int(input("Enter the bid : "))
     bid[name] = price
 
+
 print("Welcome to Vardaan's Secret Auction Bidding !")
 bidding()
 moreBid = input("Are there any other bidders ? Type 'yes' or 'no' ").lower()
